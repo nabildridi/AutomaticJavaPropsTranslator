@@ -14,6 +14,10 @@ public class PropsService {
 	
 	static Logger log = Logger.getLogger(PropsService.class.getName());
 	
+	/**
+	 * read the messages of a properties file
+	 * @param sourceFile
+	 */
 	public void readPropsFile(File sourceFile) {
 		
 		TranslateService translateService=new TranslateService();
@@ -26,6 +30,9 @@ public class PropsService {
 		try {
 			
 			dbService.openDatabase();
+			
+			//fail-safe code
+			//check if the the current file is already translated
 			String fileInDatabase=dbService.getCurrentFileName();
 			if(fileInDatabase==null){
 				dbService.setCurrentFileName(sourceFile);
@@ -35,17 +42,18 @@ public class PropsService {
 				}
 			}
 			
+			//get all the keys from the properties file
 			Configuration configuration = new PropertiesConfiguration(sourceFile);
-
 			Iterator<String> keys = configuration.getKeys();
 			List<String> keyList = new ArrayList<String>();
 			while (keys.hasNext()) {
 				keyList.add(keys.next());
 			}
 			
+			
 			for (String key : keyList) {
 				
-				//check if key in database
+				//check if key in database (fail-safe code)
 				boolean found=dbService.checkKey(key);
 				
 				if(!found){
@@ -54,19 +62,23 @@ public class PropsService {
 					
 					String translatedText="";
 					if(!message.equals("")){ 
+						//call the translation service
 						translatedText=translateService.translate(message);
 						log.info("translated to : "+translatedText);
 						
+						//convert the translated message to unicode format
 						if(auto.translate.Configuration.CONVERT_TRANSLATED_MESSAGE_TO_UNICODE_FORMAT){
 							translatedText=StringEscapeUtils.escapeJava(translatedText);
 						}
 					}
 					
+					//if translatedText is null then there is a problem accessing Microsoft Translator api --> exit program
 					if(translatedText==null){
 						dbService.closeDatase();
 						System.exit(0);
 					}
 					
+					//save the translated message into the embedded database
 					dbService.setKeyMessage(key, translatedText);
 
 				}else{
@@ -75,7 +87,7 @@ public class PropsService {
 				
 			}
 			
-
+			//save the target file
 			filesService.saveTargetFile(sourceFile, dbService);
 			dbService.emptyDatabase();
 			dbService.closeDatase();

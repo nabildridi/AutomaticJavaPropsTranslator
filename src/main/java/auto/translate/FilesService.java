@@ -18,6 +18,11 @@ public class FilesService {
 	private final File propsSourceDir=new File(Configuration.PROPERTIES_SOURCE_FOLDER);
 	private final File propsTargetDir=new File(Configuration.GENERATED_PROPERTIES_FOLDER);
 	
+	
+	/**
+	 * read the properties files from the source folder
+	 * @return List<File>
+	 */
 	public List<File> searchPropsFiles(){
 		List<File>  propsSourcefiles =(List<File>)  FileUtils.listFiles(
 				propsSourceDir, 
@@ -27,6 +32,11 @@ public class FilesService {
 		return propsSourcefiles;		
 	}
 	
+	/**
+	 * construct and save the target file
+	 * @param sourceFile
+	 * @param dbService
+	 */
 	public void saveTargetFile(File sourceFile, DbService dbService){
 		
 		List<String> messages=new ArrayList<String>();

@@ -10,6 +10,11 @@ public class TranslateService {
 	
 	static Logger log = Logger.getLogger(TranslateService.class.getName());
 	
+	/**
+	 * Call Microsoft Translator through API
+	 * @param message
+	 * @return String
+	 */
 	public String translate(String message){
 		String translatedText=null;
 		

@@ -1,14 +1,14 @@
 # Automatic Java properties files translator
--
 The purpose of this project is to translate the messages of a big number of i18n java properties files from one language to another in automatic fashion using Microsoft Bing translation API, this program has some benefits :
 
 1. It will translate every message from each provided properties file, create the correspondent file with the same keys but with the translated messages.
 2. Fail-safe : you can stop the execution, when the program restart, it will continue where it stopped.
 3. It will recreate exactly the same folders structure under the source folder into the target folder.
 
+## Execution :
+This project is an Eclipse project, please run the class 'auto.translate.Main'.
 
 ## Configuration :
--
 You can configure the program by the changing the values in the interface class : auto.translate.Configuration
 
 The configuration fields are :
@@ -39,7 +39,7 @@ The configuration fields are :
     AUTO_DETECT
     ARABIC
     BULGARIAN
-    CATALAN("ca"),
+    CATALAN
     CHINESE_SIMPLIFIED
     CHINESE_TRADITIONAL
     CZECH

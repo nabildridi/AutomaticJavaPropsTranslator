@@ -10,12 +10,12 @@ public interface Configuration {
 	
 	
 	public final String GENERATED_PROPERTIES_FOLDER="generated";	
-	public final String TRANSLATION_COUNTRY_CODE="_ar";
+	public final String TRANSLATION_JAVA_LOCALE_CODE="_ar";
 	
 	
 	
 	public final Language MESSAGE_SOURCE_LANGUAGE=Language.ENGLISH;
-	public final Language TARGET_LANGUAGE=Language.ARABIC;	
+	public final Language MESSAGE_TARGET_LANGUAGE=Language.ARABIC;	
 	
 	public final boolean CONVERT_TRANSLATED_MESSAGE_TO_UNICODE_FORMAT=true;
 	

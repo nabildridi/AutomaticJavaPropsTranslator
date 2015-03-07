@@ -45,7 +45,7 @@ public class FilesService {
 		String parentFolderPath=parentFolder.getAbsolutePath();
 		
 		String targetFolderPath=parentFolderPath.replace(propsSourceDir.getAbsolutePath(), propsTargetDir.getAbsolutePath());
-		String targetFileName=fileName.replace(".properties", Configuration.TRANSLATION_COUNTRY_CODE + ".properties");
+		String targetFileName=fileName.replace(".properties", Configuration.TRANSLATION_JAVA_LOCALE_CODE + ".properties");
 		
 		String targetFullPath=targetFolderPath+File.separator+targetFileName;
 		
@@ -61,7 +61,11 @@ public class FilesService {
 			e.printStackTrace();
 		}
 		
-		FileUtils.deleteQuietly(sourceFile);
+		//rename the source file
+		String fullPathSourceName=sourceFile.getAbsolutePath();
+		File translatedSourceFile=new File(fullPathSourceName+".translated");
+		sourceFile.renameTo(translatedSourceFile);
+		
 
 		
 	}

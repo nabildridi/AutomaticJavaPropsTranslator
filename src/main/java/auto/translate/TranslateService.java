@@ -18,7 +18,7 @@ public class TranslateService {
 	    
 	   for(int i=0;i<10;i++){
 		    try {
-				translatedText = Translate.execute(message, Configuration.MESSAGE_SOURCE_LANGUAGE, Configuration.TARGET_LANGUAGE);
+				translatedText = Translate.execute(message, Configuration.MESSAGE_SOURCE_LANGUAGE, Configuration.MESSAGE_TARGET_LANGUAGE);
 			} catch (Exception e) {e.printStackTrace();}
 		    
 		    if(translatedText!=null && !translatedText.startsWith("TranslateApiException: Cannot find an active Azure Market Place Translator")){

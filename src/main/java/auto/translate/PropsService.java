@@ -68,8 +68,7 @@ public class PropsService {
 					}
 					
 					dbService.setKeyMessage(key, translatedText);
-					
-					Thread.sleep(500);
+
 				}else{
 					log.info("key found in database : "+key);
 				}

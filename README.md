@@ -34,6 +34,50 @@ The configuration fields are :
 **Please refer to this [video](http://wordfast.fi/blog/cat-tools/2012/05/01/new-microsoft-translator-api-with-client-id-and-client-secret/) to understand how to get a client id and secret after registration in Microsoft Azure marketplace (it's a free but limited offer)**
 
 
+## list of supported languages in Microfost Translator as listed in the excellent [microsoft-translator-java-api](https://github.com/boatmeme/microsoft-translator-java-api)
+
+    AUTO_DETECT
+    ARABIC
+    BULGARIAN
+    CATALAN("ca"),
+    CHINESE_SIMPLIFIED
+    CHINESE_TRADITIONAL
+    CZECH
+    DANISH
+    DUTCH
+    ENGLISH
+    ESTONIAN
+    FINNISH
+    FRENCH
+    GERMAN
+    GREEK
+    HAITIAN_CREOLE
+    HEBREW
+    HINDI
+    HMONG_DAW
+    HUNGARIAN
+    INDONESIAN
+    ITALIAN
+    JAPANESE
+    KOREAN
+    LATVIAN
+    LITHUANIAN
+    MALAY
+    NORWEGIAN
+    PERSIAN
+    POLISH
+    PORTUGUESE
+    ROMANIAN
+    RUSSIAN
+    SLOVAK
+    SLOVENIAN
+    SPANISH
+    SWEDISH
+    THAI
+    TURKISH
+    UKRAINIAN
+    URDU
+    VIETNAMESE
 	 
 	 
 
